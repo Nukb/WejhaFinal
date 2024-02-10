@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route for Landing Page
+Route::get('/home', function(){ return view('landingPage');})->name('home');
 
-Auth::routes();
+Route::get('/profile', function(){ return view('profilePage');})->name('profile');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/contact', function(){ return view('contactPage');})->name('contact');
 
-Auth::routes();
+Route::get('/questions', function(){ return view('FAQPage');})->name('questions');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/instructors', function(){ return view('instructors');})->name('instructors');
+
+Route::get('/Courses', function(){ return view('Course');})->name('Details');
+
+Route::get('/Details', function(){ return view('Details');})->name('Courses');
